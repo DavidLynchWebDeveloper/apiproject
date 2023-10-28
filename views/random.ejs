@@ -1,0 +1,46 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                     
+                <div class="containerbox">
+                  <h2>Random Selection</h2>
+                  <h3>David Lynch -Web Developer</h3>
+                 <p>This is an api that allows users to search for breweries
+                  around the world. You can search by brewery type, location,
+                  size and much more.<br />
+                  For example: <a href="/random" target="_self">Click here</a> to display a random brewery around the 
+                  world.
+                </p>
+                </div>
+    
+            </div>
+    
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+
+              <div class="containerbox">
+                <h3>Brewery Details</h3>
+                <span class="yellowtext">Brewery Name:</span> <%= items[0] %> <br />
+                <span class="yellowtext">Brewery Type:</span> <%= items[1] %> <br /><br />
+                <span class="yellowtext">Address:</span><br />
+                 <%= items[2] %> <br />
+                 <%= items[3] %> <br />
+                 <%= items[4] %> <br />
+                 <%= items[5] %> <br /><br />
+
+                 <% if (items[6] == null) { %>
+                  <span class="yellowtext">Phone Number:</span> No Phone Number on record<br />
+                 <% } else { %>
+                    <span class="yellowtext">Phone Number:</span> <%= items[6] %><br />
+                 <% } %>
+                
+                 <% if (items[7] == null) { %>
+                  <span class="yellowtext">Website:</span> No Website on record<br />
+                 <% } else { %>
+                  <span class="yellowtext">Website:</span> <a href=<%= items[7] %> target="_blank"><%= items[7] %></a><br />
+                 <% } %>
+                
+              </div>
+          </div> 
+
+<%- include("partials/footer.ejs") %>

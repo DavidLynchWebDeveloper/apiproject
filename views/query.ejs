@@ -1,0 +1,91 @@
+<%- include("partials/header.ejs") %>
+<div id="wrapper">
+    <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                     
+                <div class="containerbox1">
+                  <h2>Search Query</h2>
+                  <h3>David Lynch -Web Developer</h3>
+
+                  <ul>
+                      <li>Type in the search Query e.g. dog</li>
+                      <li>Enter the list quantity.</li>
+                </ul>
+
+                <br /><br /><br /><br />
+
+                <div class="formcontainer">
+                  <form action="/byquery" method="POST">
+                  
+                    <div class="row">
+                      <div class="col-25">
+                        <label for="query">Query</label>
+                      </div>
+                      <div class="col-75">
+                        <input type="text" id="query" name="query" required>
+                      </div>
+                    </div>
+                  
+                  <div class="row">
+                    <div class="col-25">
+                      <label for="qty">Quantity</label>
+                    </div>
+                    <div class="col-75">
+                      <input type="text" id="qty" name="qty" required>
+                    </div>
+                  </div>
+
+                    <div class="row">
+                      	<input type="submit" value="Submit">
+                    </div>   
+                  </form>
+                </div>
+
+                </div>
+            </div>
+    
+            <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+
+              <div class="containerbox2">
+
+                <% let getlen = items.length; %>
+                <% if (getlen != 0) { %>
+
+                <!-- <% let query = items[0][4]; %> -->
+                <h3>Brewery List By Query</h3>
+                <ol>
+                <% for (var i=0;i<getlen;i++) { %>
+                  <li><%= items[i][0] %>- 
+                    <%= items[i][3] %>,<%= items[i][4] %>
+
+                    <!-- <% if (items[i][6] == null) { %>
+                        No Phone record->
+                    <% } else { %>
+                        Ph: <%= items[i][6] %>->
+                    <% } %> -->
+                
+                    <% if (items[i][7] == null) { %>
+                        <span class="http strikethrough">http</span>
+                    <% } else { %>
+                        <a href=<%= items[i][7] %> target="_blank">http</a>
+                    <% } %>
+
+                  </li>
+                <% } %>
+                </ol>
+
+                <% } else { %>
+
+                  <h3>Brewery List By Query</h3>
+                  <h2>Sorry No Results were found</h2>
+
+                <% } %>
+
+
+              </div>
+            </div>
+
+    </div> 
+</div>
+<%- include("partials/footer.ejs") %>
+
